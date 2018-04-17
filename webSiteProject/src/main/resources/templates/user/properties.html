@@ -1,0 +1,43 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" enctype="multipart/form-data"
+     xmlns="http://www.w3.org/1999/html">
+    <div id="container" class="carousel-inner">
+        <div class="item active">
+            <img class="img-responsive" src="/img/1920x1080/01.jpg" alt="Slider Image"/>
+            <div class="container body-content span=8 offset=2 custom-top-padding text-area">
+                <form class="col-lg-pull-1 col-sm-3"  th:action="@{/profile/properties}" method="post">
+                    <fieldset>
+                    <div>
+                    <label style="color: white" class="col-sm-3 control-label"  for="user_weight">WEIGHT</label>
+                    <div>
+                        <input class="form-control" type="number" min="0" placeholder="weight" th:field="${user.weight}"
+                              th:value="${weight}" id="user_weight" name="weight"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="color: white" class="col-sm-3 control-label" for="user_height">HEIGHT</label>
+                    <div>
+                        <input type="number" min="0" th:field="${user.height}" th:value="${height}" class="form-control"
+                               placeholder="height" id="user_height" name="height" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="color: white"  class="col-sm-3 control-label" for="user_years">AGE</label>
+                    <div>
+                        <input class="form-control" type="number"  min="0" placeholder="age" th:value="${years}" th:field="${user.years}" id="user_years" name="years"/>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <font color="white">
+                        <input type="radio" name="sex"  th:value="male" required="required"/> Male
+                        <input type="radio" name="sex"  th:value="female" required="required"/> Female
+                        </font>
+                    </div>
+                        <div class="pull-right"><input value="Submit" type="submit" class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red"/></div>
+                        <a style="margin-top: -72.5px; left: -8px" class=" btn-theme btn-theme-sm btn-white-brd text-uppercase text-red" th:href="@{/}">Cancel</a>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

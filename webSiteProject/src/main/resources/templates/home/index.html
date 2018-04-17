@@ -1,0 +1,21 @@
+<div id="carousel-example-generic" class="carousel" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+            <img class="img-responsive" src="img/1920x1080/01.jpg" alt="Slider Image"/>
+            <form class="center-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="container body-content span=8 offset=2 custom-top-padding text-area">
+                            <label style="color: white; size: 60px">Our Categories</label>
+                            <th:block th:each="category : ${categoryList}">
+                                <tr>
+                                    <li style="color:white; text-decoration-style: double;" th:text="${category.name}"></li>
+                                </tr>
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

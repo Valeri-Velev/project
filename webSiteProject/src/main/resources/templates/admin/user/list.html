@@ -1,0 +1,39 @@
+<div id="carousel-example-generic"  class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
+    <div class="carousel-inner" >
+        <div class="item active">
+            <img class="img-responsive" src="/img/1920x1080/02.jpg"  alt="Slider Image"/>
+            <div class="container body-content span=8 offset=2 custom-top-padding">
+
+                <h2><font color="white">All Users</font></h2>
+            <div class="row">
+                <table class="table table-striped table-hover" style="background-color: orange">
+                    <thead>
+                    <tr>
+                        <th><font color="white" style="text-decoration-style: double">#</font></th>
+                        <th><font color="white"> Full Name</font></th>
+                        <th><font color="white">Email</font></th>
+                        <th><font color="white">Actions</font></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <th:block  th:each="user : ${users}">
+                        <tr style="background-color: white" th:class="${user.isAdmin() ? 'info' : null}">
+                            <td style="color: orange;text-decoration-style: double;" th:text="${user.id}"></td>
+                            <td style="color:orange; text-decoration-style: double;" th:text="${user.name}"></td>
+                            <td style="color:orange; text-decoration-style: double;" th:text="${user.email}"></td>
+                            <td>
+                                <a  style="color: orange;text-decoration-style: double;" th:href="@{/admin/users/edit/{id}(id=${user.id})}">Edit</a>
+                                <a style="color: orange;text-decoration-style: double;" th:href="@{/admin/users/delete/{id}(id=${user.id})}">Delete</a>
+                            </td>
+                        </tr>
+                    </th:block>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+

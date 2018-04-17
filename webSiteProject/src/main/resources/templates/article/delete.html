@@ -1,0 +1,36 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
+    <div class="carousel-inner">
+        <div class="item active">
+            <img class="img-responsive" src="/img/1920x1080/01.jpg" alt="Slider Image"/>
+            <form class="form-horizontal" th:action="@{/article/delete/{id}(id=${article.id})}" method="POST">
+                <div class="container body-content span=8 offset=2 custom-top-padding text-area">
+                <fieldset>
+                    <legend><font color="white">Delete Post</font></legend>
+
+                    <div style="color:red;" class="form-group">
+                        <label class="col-sm-4 control-label" for="article_title">Post Title</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_title" placeholder="Post Title" name="title" th:value="${article.title}" disabled="disabled"/>
+                        </div>
+                    </div>
+
+                    <div style="color:red;" class="form-group">
+                        <label class="col-sm-4 control-label" for="article_content">Content</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="6" id="article_content" name="content" th:field="${article.content}" disabled="disabled"></textarea>
+                        </div>
+                    </div>
+
+                    <div style="color:red;"  class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" th:href="@{/article/{id}(id = ${article.id})}">Cancel</a>
+                            <input type="submit" class="btn btn-danger" value="Delete"/>
+                        </div>
+                    </div>
+                </fieldset>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

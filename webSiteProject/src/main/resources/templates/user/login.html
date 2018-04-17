@@ -1,0 +1,39 @@
+<main>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+            <img class="img-responsive" src="img/1920x1080/01.jpg" alt="Slider Image"/>
+            <div class="container body-content span=8 offset=2 custom-top-padding">
+                <div class="">
+                    <form class="form-horizontal" th:action="@{/login}" method="post">
+                        <fieldset>
+                            <legend style="color: white;">Login</legend>
+                            <div class="form-group">
+                                <label style="color: white;" class="col-sm-4 control-label" for="user_email">Email</label>
+                                <div class="col-sm-4 ">
+                                    <input class="form-control" type="email" id="user_email" placeholder="Email" name="email"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: white;" class="col-sm-4 control-label" for="password">Password</label>
+                                <div class="col-sm-4">
+                                    <input type="password" class="form-control" id="password" placeholder="Password" name="password"/>
+                                </div>
+                            </div>
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-4">
+                                    <a class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red" th:href="@{/}">Cancel</a>
+                                    <button type="submit"
+                                            class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red">Login</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</main>

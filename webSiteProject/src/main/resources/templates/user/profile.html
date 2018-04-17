@@ -1,0 +1,40 @@
+<div id="carousel-example-generic" class="background-custom-images-user-profile" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+
+            <div class="container body-content span=8 offset=2 custom-top-padding text-area">
+                <form th:object="${profilePicture}" method="POST" enctype="multipart/form-data" class="form-horizontal" style="color:white;text-decoration-style: double">
+                    <img width="250" height="250"  th:src="@{'data:image/jpg;base64,' + ${profilePicture}}"/>
+                    <p style="color:white;text-decoration-style: double">Email :
+                        <span style="color:white;text-decoration-style: double" th:text="${user.email} "> </span>
+                    </p>
+                    <p style="color:white;text-decoration-style: double"> Name:
+                    <span style="color:white;text-decoration-style: double" th:text="${user.name}"> </span>
+                    </p>
+                    <span  th:if="${user.weight}!=null">
+                    <p style="color:white;text-decoration-style: double"> Weight: <label style="color:white;text-decoration-style: double" th:text="${user.weight}"></label></p>
+                </span>
+                    <span  th:if="${user.height}!=null">
+                    <p style="color:white;text-decoration-style: double"> Height:
+                        <label style="color:white;text-decoration-style: double" th:text="${user.height}"></label>
+                    </p>
+                </span>
+                    <span  th:if="${user.years}!=null">
+                       <p style="color:white;text-decoration-style: double"> Age:
+                    <label text="Age: " style="color:white;text-decoration-style: double"  th:text="${user.years}"></label>
+                       </p>
+                </span>
+                    <span  th:if="${user.years}!=null">
+                       <p style="color:white;text-decoration-style: double"> Gender:
+                    <label text="Age: " style="color:white;text-decoration-style: double"  th:text="${user.sex}"></label>
+                       </p>
+                </span>
+                </form>
+                      <a th:object="${editedProfilePicture}" value="Edit" class="btn-theme btn-theme-sm
+                      btn-white-brd text-uppercase text-red" th:href="@{/profile/edit/{id}(id = ${user.id})}"
+                         name="editedProfilePicture"
+                              th:src="@{'data:image/png;base64,' + ${editedProfilePicture}}">EDIT</a>
+        </div>
+     </div>
+    </div>
+</div>

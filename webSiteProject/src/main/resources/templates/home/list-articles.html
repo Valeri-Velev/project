@@ -1,0 +1,32 @@
+<div id="carousel-example-generic"  class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
+    <div class="carousel-inner" >
+        <div class="item active">
+            <img class="img-responsive" src="/img/1920x1080/02.jpg"  alt="Slider Image"/>
+            <div class="container body-content span=8 offset=2 custom-top-padding">
+    <th:block th:each="article : ${articles}">
+    <div class="col-md-6">
+        <article>
+            <header>
+                <h2 style="color: white;" th:text="${article.title}"></h2>
+            </header>
+
+            <p style="color: white;" th:text="${article.summary}"></p>
+
+            <small style="color: white;" class="author" th:text="${article.author.name}"></small>
+            <p>
+                <a class="btn-theme btn-theme-sm btn-white-brd text-uppercase" th:each="tag:${article.tags}" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>
+            </p>
+
+            <footer>
+                <div class="pull-left">
+                    <a class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red"
+                       th:href="@{/article/{id}(id=${article.id})}">Read more</a>
+                </div>
+            </footer>
+        </article>
+    </div>
+</th:block>
+            </div>
+        </div>
+    </div>
+</div>

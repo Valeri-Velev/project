@@ -1,0 +1,58 @@
+<header class="header navbar-fixed-top">
+    <nav class="navbar" role="navigation">
+        <div class="container">
+            <div class="menu-container js_nav-item">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="toggle-icon"></span>
+                </button>
+
+                <div class="logo">
+                    <a class="logo-wrap" th:href="@{/}">
+                        <img class="logo-img logo-img-main" src="/img/logo.png" alt="FlameOnePage Logo"/>
+                        <img class="logo-img logo-img-active" src="/img/logo-dark.png" alt="FlameOnePage Dark Logo"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse nav-collapse">                <!--<div class="language-switcher">-->
+                    <!--<ul class="nav-lang">-->
+                    <!--<li><a class="active" href="#">EN</a></li>-->
+                    <!--<li><a href="#">DE</a></li>-->
+                    <!--<li><a href="#">FR</a></li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav navbar-nav-right">
+                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" th:href="@{/}">Home</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAuthenticated()"><a th:href="@{/profile}" class=" nav-item-child nav-item-hover">My Profile</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAnonymous()"><a class="nav-item-child nav-item-hover" th:href="@{/register}">Register</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAnonymous()"><a class="nav-item-child nav-item-hover"  th:href="@{/login}">Login</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAnonymous()"><a class="nav-item-child nav-item-hover" th:href="@{/catalog}">Catalog</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAuthenticated()"><a class="nav-item-child nav-item-hover" th:href="@{/logout}">Logout</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAuthenticated()"><a class="nav-item-child nav-item-hover" th:href="@{/article/create}">new Thread</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAuthenticated()"><a class="nav-item-child nav-item-hover" th:href="@{/profile/myarticles}">My Articles</a></li>
+                            <li class="js_nav-item nav-item" sec:authorize="isAuthenticated()"><a class="nav-item-child nav-item-hover" th:href="@{/profile/properties}">Properties</a></li>
+                            <li style="margin-top: 20px" class="js_nav-item nav-item">
+                                <button onclick="myFunction()" class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red" style="border: none;background-color: transparent;">Search</button>
+                                <div id="myDropdown"  class="dropdown-content scrollable-menu">
+                                    <input type="text" placeholder="Enter author name.." id="myInput" onkeyup="filterFunction()"/>
+                                    <th:block th:each="user : ${users}">
+                                    <a th:href="@{/home/articles-by-author/{authorId}(authorId=${user.id})}" th:text="${user.name}"></a>
+                                    </th:block>
+                                </div>
+                            </li>
+                            <li class="js_nav-item nav-item nav-item-child nav-item-hover" sec:authorize="hasRole('ADMIN')">
+                                <a href="#" class="dropdown-toggle btn-theme-sm btn-white-brd" role="button" data-toggle="dropdown">Admin</a>
+                                <ul style="padding-top: 5px;background: rgba(0,0,0,0.3);"
+                                    class="dropdown-menu" role="menu">
+                                    <li class="" ><a style="padding-top: 0px;padding-bottom: 0px;" class="nav-item-child" th:href="@{/admin/users/}">Users</a></li>
+                                    <li class="" ><a style="padding-top: 0px;padding-bottom: 0px;" class="nav-item-child" th:href="@{/admin/categories/}">Categories</a></li>
+                                </ul>
+                            </li>
+                            <div id="id123"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

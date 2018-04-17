@@ -1,0 +1,27 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+            <img class="img-responsive" src="/img/1920x1080/01.jpg" alt="Slider Image"/>
+            <div class="container body-content span=8 offset=2 custom-top-padding">
+                <form class="form-horizontal" th:action="@{/profile/edit/{id}(id = ${user.id})}" method="post" enctype="multipart/form-data">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label style="color: white;" class="col-sm-4 control-label" for="upload-photo">Upload</label>
+                            <div class="col-sm-4">
+                                <input type="file" class="form-control" id="upload-photo"
+                                       placeholder="Picture" name="profilePicture" required="required"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <a class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red" th:href="@{/}">Cancel</a>
+                                <input value="Submit" type="submit" class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div id="carousel-example-generic"  class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
+    <div class="carousel-inner" >
+        <div class="item active">
+            <img class="img-responsive" src="/img/1920x1080/02.jpg"  alt="Slider Image"/>
+            <div class="container body-content span=8 offset=2 custom-top-padding">
+            <form class="form-horizontal" style="color: white;text-decoration-style: double" th:action="@{/admin/users/edit/{id}(id=${user.id})}" method="post">
+                <fieldset>
+                    <legend><font color="white" style="text-decoration-style: double">Edit User</font></legend>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="user_email">Email</label>
+                        <div class="col-sm-4 ">
+                            <input class="form-control" type="email" id="user_email" placeholder="Email" name="email"
+                                   required="required" th:value="${user.email}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="user_fullname">Full Name</label>
+                        <div class="col-sm-4 ">
+                            <input class="form-control" type="text" id="user_fullname" placeholder="Full Name"
+                                   name="name" required="required" th:value="${user.name}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="user_password_first">Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" id="user_password_first" placeholder="Password"
+                                   name="password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="user_password_second">Confirm Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" id="user_password_second" placeholder="Password"
+                                   name="confirmPassword"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="roles">Roles</label>
+                        <div class="col-sm-6">
+                            <th:block th:each="role : ${roles}">
+                                <input id="roles" type="checkbox" name="roles" th:value="${role.id}" th:text="${role.name}" th:checked="${user.roles.contains(role)}"/>
+                                <br/>
+                            </th:block>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" th:href="@{/admin/users/}">Cancel</a>
+                            <input value="Edit" type="submit" class="btn btn-success"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>

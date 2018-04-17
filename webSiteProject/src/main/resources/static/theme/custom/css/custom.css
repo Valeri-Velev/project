@@ -1,0 +1,76 @@
+.custom-top-padding{
+    padding-top: 200px;
+}
+
+.text-red:hover{
+    color: red;
+}
+.text-green:hover{
+    color:lawngreen;
+}
+
+.catalog-button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration-color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.button1 {
+    background-color: transparent;
+    color: orange;
+    border-width: 1px;
+    border-color: white;
+    border-style: double;
+    border-radius: 5px;
+}
+
+.button1:hover {
+    background-color: #ffa500;
+    color: #ffffff;
+    border-color: #ffa500;
+}
+
+.background-image-custom {
+    background-image: url('/img/1920x1080/catalog-background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.background-custom-images {
+    background-image: url('/img/1920x1080/asd.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.background-custom-images-user-profile
+{
+    background-image: url('/img/1920x1080/01.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    height: 1080px;
+}
+.full-screen {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;}
+
+.custom-elements-position
+{
+    margin-top: 200px;
+    margin-left: 50%;
+    text-transform: capitalize;
+    -o-animation-name: revert;
+    text-decoration-color: white;
+}

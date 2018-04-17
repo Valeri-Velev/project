@@ -1,0 +1,26 @@
+<div class="background-custom-images">
+    <th:block th:each="picture : ${pictures}">
+
+        <img style="margin-left: 45%; margin-top: 200px; width: 250px; height: 250px;" th:src="@{'data:image/png;base64,' + ${picture}}"/>
+        <div style="margin-left: 45%;color: white;" th:text="${article.title}"></div>
+        <div style="margin-left: 45%;color: white" th:text="${article.content}"></div>
+        <div style="margin-left: 45%;color: white; text-decoration: darkorange;text-decoration-style: double" class="author"
+             th:text="${article.author.name}"></div>
+        <br>
+        <div style="margin-left: 45%" class="row">
+        <a  th:if="${#lists.size(tag.name) != 0}" class="btn btn-default btn-xs"
+           th:each="tag:${article.tags}" th:href="@{/tag/{name}(name=${tag.name})}" th:text="${tag.name}"></a>
+        </div>
+    </br>
+    </th:block>
+
+    <th:block sec:authorize="isAuthenticated()" th:if="${user.isAdmin() OR user.isAuthor(article)}">
+        <div style="margin-left: 45%" class="row">
+        <a  class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red"
+           th:href="@{/article/edit/{id}(id = ${article.id})}">Edit</a>
+        <a  class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red"
+           th:href="@{/article/delete/{id}(id = ${article.id})}">Delete</a>
+        </div>
+    </th:block>
+    <a style="margin-left: 45%;" class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red" th:href="@{/catalog}">back &raquo;</a>
+</div>

@@ -1,0 +1,73 @@
+<div id="carousel-example-generic"  class="carousel slide" data-ride="carousel" xmlns="http://www.w3.org/1999/html">
+    <div class="carousel-inner" >
+        <div class="item active">
+            <img  src="/img/1920x1080/02.jpg"  alt="Slider Image"/>
+            <div class="container body-content span=8 offset=2 custom-top-padding">
+                    <form class="form-horizontal" th:action="@{/article/create}" method="post" enctype="multipart/form-data">
+                        <fieldset>
+                            <legend style="color: white">  New Post</legend>
+                            <div class="form-group">
+                                <label style="color: white" class="col-sm-4 control-label" for="article_title">Article Title</label>
+                                <div class="col-sm-4 ">
+                                    <input class="form-control" type="text" id="article_title" placeholder="Article Title" name="title" required="required"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: white" class="col-sm-4 control-label" for="article_content">Article Content</label>
+                                <div class="col-sm-4 ">
+                                    <input class="form-control" type="text" rows="6" id="article_content" placeholder="content" name="content" required="required"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: white" class="col-sm-4 control-label" for="article_price">Price</label>
+                                <div class="col-sm-6">
+                                    <input type="number" class="form-control" rows="6" id="article_price" placeholder="price" th:value="${price}" name="price" required="required"/>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: white" class="col-sm-4 control-label" for="article_category">Category</label>
+                                <div class="col-sm-6">
+                                    <select type="text" class="form-control" id="article_category" name="categoryId" required="required">
+                                        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label style="color: white" class="col-sm-4 control-label" for="article_tags">Tags</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" id="article_tags" placeholder="tags" name="tagString" required="required"/>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label style="color: white;" class="col-sm-4 control-label">Upload</label>
+                                <div class="col-sm-4">
+                                    <input multiple="multiple" type="file" class="form-control" id="upload-photo" name="pictures" required="required"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-4">
+                                    <a class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red" th:href="@{/}">Cancel</a>
+                                    <input value="Submit" type="submit" class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red"/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-centered">
+                    <div class="margin-b-40">
+                        <h2 class="carousel-title">Personal Approach</h2>
+                        <p class="color-white">Lorem ipsum dolor amet consectetur adipiscing dolore magna aliqua <br/> enim minim estudiat veniam siad venumus dolore</p>
+                    </div>
+                    <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Take a Tour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

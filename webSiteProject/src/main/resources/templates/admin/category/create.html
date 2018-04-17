@@ -1,0 +1,27 @@
+ <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="img-responsive" src="/img/1920x1080/01.jpg" alt="Slider Image"/>
+                <div class="container body-content span=8 offset=2 custom-top-padding text-area">
+             <form class="form-horizontal" th:action="@{/admin/categories/create}" method="POST">
+                <fieldset>
+                    <legend><font color="white"> New Category</font></legend>
+                    <div class="form-group">
+                        <label style="color: white; text-decoration-style: double; background-color: transparent" class="col-sm-4 control-label" for="category_name">Category Name</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="category_name" placeholder="Category Name" name="name"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red" th:href="@{/admin/categories/}">Cancel</a>
+                            <button class="btn-theme btn-theme-sm btn-white-brd text-uppercase text-red"  type="submit">Create</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+                </div>
+            </div>
+        </div>
+ </div>
+
